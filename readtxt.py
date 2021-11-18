@@ -18,27 +18,21 @@ def read_txt(path):
             line = line.split()
             
             if len(line)==2:
-                n = line[0]
-                m = line[1]
+                n = int(line[0])
+                m = int(line[1])
             if len(line)==3:
-                end1_tmp = line[0]
-                end2_tmp = line[1]
-                weight_tmp = line[2]
+                end1_tmp = int(line[0])
+                end2_tmp = int(line[1])
+                weight_tmp = int(line[2])
                 
                 end1.append(end1_tmp)
                 end2.append(end2_tmp)
                 weight.append(weight_tmp)
-    return n, m, end1, end2, weight
-    
-
-def adjacency_matrix(n, m, end1, end2, weight):
-    n = int(n)
-    m = int(m)
     
     A = np.zeros((n,n))
     
     for i in range(m):
-        A[int(end1[i])][int(end2[i])] = int(weight[i])
-        A[int(end2[i])][int(end1[i])] = int(weight[i])
+        A[end1[i]][end2[i]] = weight[i]
+        A[end2[i]][end1[i]] = weight[i]
     
     return A

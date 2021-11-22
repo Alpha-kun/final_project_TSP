@@ -1,11 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-import sys
-import gurobipy as gp
-from gurobipy import GRB
 import numpy as np
-
 
 def read_txt(path):
     end1 = []
@@ -35,4 +31,4 @@ def read_txt(path):
         A[end1[i]][end2[i]] = weight[i]
         A[end2[i]][end1[i]] = weight[i]
     
-    return A
+    return A, weight

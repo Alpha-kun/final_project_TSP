@@ -6,7 +6,6 @@ import numpy as np
 def read_txt(path):
     end1 = []
     end2 = []
-    weight = []
     
     with open(path, "r") as f:
         for line in f.readlines():
@@ -27,8 +26,4 @@ def read_txt(path):
     
     A = np.zeros((n,n))
     
-    for i in range(m):
-        A[end1[i]][end2[i]] = weight[i]
-        A[end2[i]][end1[i]] = weight[i]
-    
-    return A, weight
+    return A

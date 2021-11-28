@@ -4,6 +4,7 @@ import heuristic
 from gurobipy import GRB
 from readtxt import read_txt
 from mincut import globalMinCut
+from collections import defaultdict
 
 
 # convert a solution to a graph expressed in adjacency matrix

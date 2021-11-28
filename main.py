@@ -137,3 +137,29 @@ def branch_and_bound(TSP_problem):
 
 branch_and_bound(TSP_Master)
 print(global_lower_bound)
+
+# print final output in the required format
+connections = defaultdict(list)
+for i in range(m):
+    if global_opt_sol[i] == 0:
+        continue
+    start, end = index2pair[i]
+    connections[start].append(end)
+    connections[end].append(start)
+
+# connect the edges one by one
+results = [] # (end1, end2, weight)
+start = -1
+end1 = -1
+end2 = 0
+while end2 != start:
+    end1 = end2
+    if not connections[end1]: break
+    end2 = connections[end1][0]
+    connections[end2].remove(end1)
+    connections[end1].remove(end2)
+    weight = G[end1][end2]
+    results.append((end1, end2, weight))
+    print(end1, end2, weight, '\n')
+
+print("The cost of the best tour is: ", global_lower_bound)

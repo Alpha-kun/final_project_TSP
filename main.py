@@ -66,7 +66,7 @@ for i in range(G.shape[0]):
 global_lower_bound = tc
 global_opt_sol = [0 for e in range(m)]
 for i in range(n):
-    global_opt_sol[pair2index[i, (i + 1) % n]] = 1
+    global_opt_sol[int(pair2index[i, (i + 1) % n])] = 1
 
 
 def branch_and_bound(TSP_problem):
